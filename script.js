@@ -19,36 +19,39 @@ var generateBtn = document.querySelector("#generate");
 
 function generatePassword(){
 
-  
-
   // Asks for user for length input
   confirmLengthPass = parseInt(prompt("How many characters do you want included in your password? Choose a number between 8 and 128"));
-
+  
   // prompting for user selections 
-  if (!confirmLengthPass) {
-      alert("This needs a value ");
-      confirmLengthPass;
-  } else if (confirmLengthPass < 8 || confirmLengthPass > 128) {
-      // Validates user input
-      // Start user input prompts
-      confirmLengthPass = parseInt(prompt("You must choose between 8 and 128"));
-      confirmLengthPass;
-  } else {
+  // if (!confirmLengthPass) {
+  //     alert("This needs a value ");
+  //     confirmLengthPass;
+  // } else if (confirmLengthPass < 8 || confirmLengthPass > 128) {
+  //     // Validates user input
+  //     // Start user input prompts
+  //     confirmLengthPass = parseInt(prompt("You must choose between 8 and 128"));
+  //     confirmLengthPass;
+  // } else if (confirmLengthPass === NaN) {
+  //   alert("This needs a value ");
+  //   confirmLengthPass;
+  // }
+
+  while (!confirmLengthPass || confirmLengthPass < 8 || confirmLengthPass > 128){
+    confirmLengthPass = parseInt(prompt("You must choose between 8 and 128 to proceed"));
+  };
+
       // Continues once user input is validated
       var confirmUpperCase = confirm ("include upper case? \nOK = yes \ncancel = no");
       var confirmLowerCase = confirm ("include lower case? \nOK = yes \ncancel = no");
       var confirmNumbers = confirm ("include numbers? \nOK = yes \ncancel = no");
       var confirmSpChar = confirm ("include special characters? \nOK = yes \ncancel = no");
-  };
   
-  // console.log(confirmUpperCase);
-  // console.log(confirmLowerCase);
-  // console.log(confirmNumbers);
-  // console.log(confirmSpChar);
+
+  
 
 
-// userSelection based on user submissions
-// 4 true options
+  // userSelection based on user submissions
+  // 4 true options
   if (confirmUpperCase && confirmLowerCase && confirmNumbers && confirmSpChar) {
 
     userSelection = allCapsArray.concat(allLowerArray, numbersArray, spCharArray);
@@ -103,9 +106,9 @@ function generatePassword(){
   }
 
   // 4 negative options
-  else if (!confirmUpperCase && !confirmLowerCase && !confirmNumbers && !confirmSpChar ) {
-    userSelection = alert("You must choose a criteria!");
-  };
+  // else if (!confirmUpperCase && !confirmLowerCase && !confirmNumbers && !confirmSpChar) {
+  //   userSelection = alert("You must choose a criteria!");
+  // };
 
     // empty variable to use for loop to return password inside vairable
     var randomPassword = ""
