@@ -28,10 +28,10 @@ function generatePassword(){
   }
 
     // Continues once user length input is validated
-    var confirmUpperCase = confirm ("Do you want to include upper case letters? \nOK = yes \ncancel = no");
-    var confirmLowerCase = confirm ("Do you want to include lower case letters? \nOK = yes \ncancel = no");
-    var confirmNumbers = confirm ("Do you want to include numbers? \nOK = yes \ncancel = no");
-    var confirmSpChar = confirm ("Do you want to include special characters? \nOK = yes \ncancel = no");
+    var confirmUpperCase = confirm ("Do you want to include upper case letters? \nOK = yes \nCancel = no");
+    var confirmLowerCase = confirm ("Do you want to include lower case letters? \nOK = yes \nCancel = no");
+    var confirmNumbers = confirm ("Do you want to include numbers? \nOK = yes \nCancel = no");
+    var confirmSpChar = confirm ("Do you want to include special characters? \nOK = yes \nCancel = no");
   
 
   // userSelection concatenated based on user submissions
