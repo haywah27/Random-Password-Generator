@@ -20,7 +20,7 @@ var generateBtn = document.querySelector("#generate");
 function generatePassword(){
 
   // Asks for user for length input
-  confirmLengthPass = parseInt(prompt("How many characters do you want included in your password? Please choose a number between 8 and 128"));
+  confirmLengthPass = parseInt(prompt("How many characters do you want included in your password? \n---------------------------------------------  \nPlease choose a number between 8 and 128"));
 
   // while the user input is outside given parameters, loop until user input is valid
   while (!confirmLengthPass || confirmLengthPass < 8 || confirmLengthPass > 128) {
@@ -28,10 +28,10 @@ function generatePassword(){
   }
 
     // Continues once user length input is validated
-    var confirmUpperCase = confirm ("Do you want to include upper case letters? \nOK = yes \nCancel = no");
-    var confirmLowerCase = confirm ("Do you want to include lower case letters? \nOK = yes \nCancel = no");
-    var confirmNumbers = confirm ("Do you want to include numbers? \nOK = yes \nCancel = no");
-    var confirmSpChar = confirm ("Do you want to include special characters? \nOK = yes \nCancel = no");
+    var confirmUpperCase = confirm ("Do you want to include upper case letters? \n-------------------- \nOK = yes \nCancel = no");
+    var confirmLowerCase = confirm ("Do you want to include lower case letters? \n-------------------- \nOK = yes \nCancel = no");
+    var confirmNumbers = confirm ("Do you want to include numbers? \n-------------------- \nOK = yes \nCancel = no");
+    var confirmSpChar = confirm ("Do you want to include special characters? \n-------------------- \nOK = yes \nCancel = no");
   
 
   // userSelection concatenated based on user submissions
