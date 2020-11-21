@@ -22,38 +22,21 @@ function generatePassword(){
   // Asks for user for length input
   confirmLengthPass = parseInt(prompt("How many characters do you want included in your password? Choose a number between 8 and 128"));
   
-  // prompting for user selections 
-  // if (!confirmLengthPass) {
-  //     alert("This needs a value ");
-  //     confirmLengthPass;
-  // } else if (confirmLengthPass < 8 || confirmLengthPass > 128) {
-  //     // Validates user input
-  //     // Start user input prompts
-  //     confirmLengthPass = parseInt(prompt("You must choose between 8 and 128"));
-  //     confirmLengthPass;
-  // } else if (confirmLengthPass === NaN) {
-  //   alert("This needs a value ");
-  //   confirmLengthPass;
-  // }
-
-  while (!confirmLengthPass || confirmLengthPass < 8 || confirmLengthPass > 128){
+  // while the user input is outside given parameters, loop until user input is valid
+  while (!confirmLengthPass || confirmLengthPass < 8 || confirmLengthPass > 128) {
     confirmLengthPass = parseInt(prompt("You must choose between 8 and 128 to proceed"));
-  };
+  }
 
-      // Continues once user input is validated
-      var confirmUpperCase = confirm ("include upper case? \nOK = yes \ncancel = no");
-      var confirmLowerCase = confirm ("include lower case? \nOK = yes \ncancel = no");
-      var confirmNumbers = confirm ("include numbers? \nOK = yes \ncancel = no");
-      var confirmSpChar = confirm ("include special characters? \nOK = yes \ncancel = no");
+    // Continues once user length input is validated
+    var confirmUpperCase = confirm ("include upper case? \nOK = yes \ncancel = no");
+    var confirmLowerCase = confirm ("include lower case? \nOK = yes \ncancel = no");
+    var confirmNumbers = confirm ("include numbers? \nOK = yes \ncancel = no");
+    var confirmSpChar = confirm ("include special characters? \nOK = yes \ncancel = no");
   
 
-  
-
-
-  // userSelection based on user submissions
+  // userSelection concatenated based on user submissions
   // 4 true options
   if (confirmUpperCase && confirmLowerCase && confirmNumbers && confirmSpChar) {
-
     userSelection = allCapsArray.concat(allLowerArray, numbersArray, spCharArray);
   }
 
@@ -74,20 +57,20 @@ function generatePassword(){
   // 2 true options 
   else if (confirmUpperCase && confirmLowerCase) {
     userSelection = allCapsArray.concat(allLowerArray);
-
-  } else if (confirmUpperCase && confirmNumbers) {
+  } 
+  else if (confirmUpperCase && confirmNumbers) {
     userSelection = allCapsArray.concat(numbersArray);
-
-  } else if (confirmUpperCase && confirmSpChar) {
+  } 
+  else if (confirmUpperCase && confirmSpChar) {
     userSelection = allCapsArray.concat(spCharArray);
   }
   else if (confirmLowerCase && confirmNumbers) {
     userSelection = allLowerArray.concat(numbersArray);
-
-  } else if (confirmLowerCase && confirmSpChar) {
+  } 
+  else if (confirmLowerCase && confirmSpChar) {
     userSelection = allLowerArray.concat(spCharArray);
-
-  } else if (confirmNumbers && confirmSpChar) {
+  } 
+  else if (confirmNumbers && confirmSpChar) {
     userSelection = numbersArray.concat(spCharArray);
   }
 
@@ -105,26 +88,24 @@ function generatePassword(){
     userSelection = spCharArray;
   }
 
-  // 4 negative options
-  // else if (!confirmUpperCase && !confirmLowerCase && !confirmNumbers && !confirmSpChar) {
-  //   userSelection = alert("You must choose a criteria!");
-  // };
+  // 4 false options
+  else if (!confirmUpperCase && !confirmLowerCase && !confirmNumbers && !confirmSpChar) {
+    userSelection = alert("You must choose a criteria!");
+  };
 
-    // empty variable to use for loop to return password inside vairable
-    var randomPassword = ""
-      for (var i = 0; i < confirmLengthPass; i++) {
-        randomPassword = randomPassword + userSelection[Math.floor(Math.random() * userSelection.length)];
-      }
-      return randomPassword;
+  // empty randomPassword to use for loop to return result inside vairable
+  var randomPassword = ""
+    for (var i = 0; i < confirmLengthPass; i++) {
+      randomPassword = randomPassword + userSelection[Math.floor(Math.random() * userSelection.length)];
+    }
+    return randomPassword;
 }
 
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
   passwordText.value = password;
-
 }
 
 // Add event listener to generate button
