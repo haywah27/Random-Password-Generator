@@ -24,7 +24,7 @@ function generatePassword(){
 
   // while the user input is outside given parameters, loop until user input is valid
   while (!confirmLengthPass || confirmLengthPass < 8 || confirmLengthPass > 128) {
-    confirmLengthPass = parseInt(prompt("You must choose between 8 and 128 to proceed"));
+    confirmLengthPass = parseInt(prompt("You must choose a number between 8 and 128 to proceed"));
   }
 
     // Continues once user length input is validated
@@ -90,10 +90,10 @@ function generatePassword(){
 
   // 4 false options
   else if (!confirmUpperCase && !confirmLowerCase && !confirmNumbers && !confirmSpChar) {
-    userSelection = alert("You must choose a criteria to receive password. Please restart.");
+    userSelection = alert("You must choose a criteria to receive a password. Please restart.");
   };
 
-  // empty randomPassword to use for loop to return result inside vairable
+  // empty randomPassword to use a for loop to return result inside variable
   var randomPassword = ""
     for (var i = 0; i < confirmLengthPass; i++) {
       randomPassword = randomPassword + userSelection[Math.floor(Math.random() * userSelection.length)];
@@ -101,7 +101,7 @@ function generatePassword(){
     return randomPassword;
 }
 
-// Write password to the #password input
+// Write password to the #password input box
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");

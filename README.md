@@ -1,4 +1,7 @@
 # Random-Password-Generator
+## Link to Random Password Generator
+https://haywah27.github.io/Random-Password-Generator/
+
 A random password generated based on criteria from user prompt inputs. 
 The prompts ask user for:
 * Length of password between 8 and 128
@@ -6,6 +9,7 @@ The prompts ask user for:
 * To include lower case characters?
 * To include numbers?
 * To include special characters?
+<br>
 Prompts after length input will not initiate until length of the password submitted by user is within the parameters.
 If the user does not select at least one type of character, the user must reclick the generate button and start over.
 Random password will post to the main box on the page when all the criteria is met and submitted.
@@ -25,6 +29,3 @@ Random password will post to the main box on the page when all the criteria is m
 
 # Deployed Portfolio Website Image
 <img src="./Assets/deployed-application.png" alt="deployed-website">
-
-# Link to Random Password Generator
-https://haywah27.github.io/Random-Password-Generator/
