@@ -23,6 +23,9 @@ generateBtn.addEventListener("click", writePassword);
 // alert if length of pass is out of boundries
 
 
+var lowerCaseChar = "abcdefghijklmnopqrstuvwxyz";
+var userChoice = "";
+var newPass = "";
 
 
 function generatePassword(){
@@ -35,15 +38,32 @@ function generatePassword(){
     while (lengthPass < 8 || lengthPass > 128 || !lengthPass){
       lengthPass = parseInt(prompt("Your password length has to be a number between 8 and 128, please re-submit"));
     }
-    console.log("check length " + lengthPass)
+    // console.log("check length " + lengthPass)
     checkLower();
-  }
+  
 
   function checkLower(){
     var lowerCase = confirm("Would you like to include lower case letters?");
-    console.log("check lower " + lowerCase)
-    checkUpper();
+    // console.log("check lower " + lowerCase)
+    if(lowerCase === true){ 
+      userChoice = userChoice + lowerCaseChar;
+    } 
+    // console.log(userChoice)
+    // checkUpper();
+    randomPass();
+    
+    function randomPass(){
+      for(var i = 0; i < lengthPass; i++){
+        var random = Math.floor(Math.random() * userChoice.length);
+        newPass = newPass + userChoice[random];
+      } 
+      // return newPass;
+      console.log(newPass)
+    }
   }
+}
+
+  
 
 
   function checkUpper(){
