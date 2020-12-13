@@ -24,6 +24,7 @@ generateBtn.addEventListener("click", writePassword);
 
 
 var lowerCaseChar = "abcdefghijklmnopqrstuvwxyz";
+var upperCaseChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var userChoice = "";
 var newPass = "";
 
@@ -39,7 +40,8 @@ function generatePassword(){
       lengthPass = parseInt(prompt("Your password length has to be a number between 8 and 128, please re-submit"));
     }
     // console.log("check length " + lengthPass)
-    checkLower();
+    // checkLower();
+    checkUpper();
   
 
   function checkLower(){
@@ -47,6 +49,30 @@ function generatePassword(){
     // console.log("check lower " + lowerCase)
     if(lowerCase === true){ 
       userChoice = userChoice + lowerCaseChar;
+    } 
+    // console.log(userChoice)
+    
+    randomPass();
+    
+    newPass = "";
+    function randomPass(){
+      for(var i = 0; i < lengthPass; i++){
+        var random = Math.floor(Math.random() * userChoice.length);
+        newPass = newPass + userChoice[random];
+      } 
+      // return newPass;
+      console.log(newPass)
+    }
+    checkUpper();
+  }
+
+
+  function checkUpper(){
+    var upperCase = confirm("Would you like to include upper case letters?");
+    console.log("check upper " + upperCase);
+
+    if(upperCase === true){ 
+      userChoice = userChoice + upperCaseChar;
     } 
     // console.log(userChoice)
     // checkUpper();
@@ -61,16 +87,31 @@ function generatePassword(){
       // return newPass;
       console.log(newPass)
     }
-  }
 }
 
   
+  // function checkUpper(){
+  //   var upperCase = confirm("Would you like to include upper case letters?");
+  //   console.log("check upper " + upperCase);
 
+  //   if(upperCase === true){ 
+  //     userChoice = userChoice + upperCaseChar;
+  //   } 
+  //   // console.log(userChoice)
+  //   // checkUpper();
+  //   randomPass();
+    
+  //   newPass = "";
+  //   function randomPass(){
+  //     for(var i = 0; i < lengthPass; i++){
+  //       var random = Math.floor(Math.random() * userChoice.length);
+  //       newPass = newPass + userChoice[random];
+  //     } 
+  //     // return newPass;
+  //     console.log(newPass)
+  //   }
 
-  function checkUpper(){
-    var upperCase = confirm("Would you like to include upper case letters?");
-    console.log("check upper " + upperCase)
-    checkNums();
+    // checkNums();
   }
 
   function checkNums(){
