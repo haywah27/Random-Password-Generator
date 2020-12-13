@@ -25,14 +25,21 @@ generateBtn.addEventListener("click", writePassword);
 
 
 function generatePassword(){
-  var lengthPass = prompt("Enter a length of password between 8 and 128.");
+  // convert string to int with parseInt
+  var lengthPass = parseInt(prompt("Enter a length of password between 8 and 128."));
+  // run check length before proceeding to confirm statements
+  checkLength();
   var lowercase = confirm("Would you like to include lower case letters?");
   var uppercase = confirm("Would you like to include upper case letters?");
   var numbers = confirm("Would you like to include numbers?");
   var spChar = confirm("Would you like to include lower case letters");
-  console.log(lengthPass);
-  console.log(lowercase);
-  console.log(uppercase);
-  console.log(numbers);
-  console.log(spChar);
+
+  // while the length input is not between 8-128, loop until the user inputs valid response
+  // then proceed with the other prompts
+  function checkLength() {
+    while (lengthPass < 8 || lengthPass > 128){
+      lengthPass = parseInt(prompt("Your password length has to be between 8 and 128, please reenter"));
+    }
+  }
+
 }
