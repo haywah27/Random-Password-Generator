@@ -37,8 +37,8 @@ function generatePassword(){
   // while the length input is not between 8-128, loop until the user inputs valid response
   // then proceed with the other prompts
   function checkLength() {
-    while (lengthPass < 8 || lengthPass > 128){
-      lengthPass = parseInt(prompt("Your password length has to be between 8 and 128, please reenter"));
+    while (lengthPass < 8 || lengthPass > 128 || !lengthPass){
+      lengthPass = parseInt(prompt("Your password length has to be a number between 8 and 128, please re-submit"));
     }
   }
 
