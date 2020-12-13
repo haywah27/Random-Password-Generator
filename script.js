@@ -52,6 +52,7 @@ function generatePassword(){
     // checkUpper();
     randomPass();
     
+    newPass = "";
     function randomPass(){
       for(var i = 0; i < lengthPass; i++){
         var random = Math.floor(Math.random() * userChoice.length);
