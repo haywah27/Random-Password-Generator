@@ -23,96 +23,62 @@ generateBtn.addEventListener("click", writePassword);
 // alert if length of pass is out of boundries
 
 
-var lowerCaseChar = "abcdefghijklmnopqrstuvwxyz";
-var upperCaseChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-var userChoice = "";
-var newPass = "";
+var lowerCaseChar = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+var upperCaseChar = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+var userChoice = [];
+var newPass = [];
+
 
 
 function generatePassword(){
-  checkLength();
+  // checkLength();
 
   // while the length input is not between 8-128, loop until the user inputs valid response
   // then proceed with the other prompts
-  function checkLength() {
+ 
+
+  // check length
     var lengthPass = parseInt(prompt("Enter a length of password between 8 and 128."));
     while (lengthPass < 8 || lengthPass > 128 || !lengthPass){
       lengthPass = parseInt(prompt("Your password length has to be a number between 8 and 128, please re-submit"));
     }
-    // console.log("check length " + lengthPass)
-    // checkLower();
-    checkUpper();
-  
+    
 
-  function checkLower(){
     var lowerCase = confirm("Would you like to include lower case letters?");
-    // console.log("check lower " + lowerCase)
+
     if(lowerCase === true){ 
-      userChoice = userChoice + lowerCaseChar;
-    } 
-    // console.log(userChoice)
-    
-    randomPass();
-    
-    newPass = "";
-    function randomPass(){
-      for(var i = 0; i < lengthPass; i++){
-        var random = Math.floor(Math.random() * userChoice.length);
-        newPass = newPass + userChoice[random];
-      } 
-      // return newPass;
-      console.log(newPass)
+      console.log("is true lower");
+      userChoice = userChoice.concat(lowerCaseChar);
     }
-    checkUpper();
-  }
-
-
-  function checkUpper(){
-    var upperCase = confirm("Would you like to include upper case letters?");
-    console.log("check upper " + upperCase);
-
-    if(upperCase === true){ 
-      userChoice = userChoice + upperCaseChar;
-    } 
-    // console.log(userChoice)
-    // checkUpper();
-    randomPass();
-    
-    newPass = "";
-    function randomPass(){
-      for(var i = 0; i < lengthPass; i++){
-        var random = Math.floor(Math.random() * userChoice.length);
-        newPass = newPass + userChoice[random];
-      } 
-      // return newPass;
-      console.log(newPass)
-    }
-}
-
+    console.log("this is userChoice: " + userChoice)
   
-  // function checkUpper(){
-  //   var upperCase = confirm("Would you like to include upper case letters?");
-  //   console.log("check upper " + upperCase);
+    // console.log(userChoice)
 
-  //   if(upperCase === true){ 
-  //     userChoice = userChoice + upperCaseChar;
-  //   } 
-  //   // console.log(userChoice)
-  //   // checkUpper();
-  //   randomPass();
+    // var upperCase = confirm("Would you like to include upper case letters?");
+    // // console.log("check upper " + upperCase);
+
+    // if(upperCase === true){ 
+    //   console.log("is true upper");
+    //   userChoice = userChoice.concat(upperCaseChar);
+    // } 
+    // console.log("this is userChoice: " + userChoice)
     
-  //   newPass = "";
-  //   function randomPass(){
-  //     for(var i = 0; i < lengthPass; i++){
-  //       var random = Math.floor(Math.random() * userChoice.length);
-  //       newPass = newPass + userChoice[random];
-  //     } 
-  //     // return newPass;
-  //     console.log(newPass)
-  //   }
+    
 
-    // checkNums();
+      for(var i = 0; i < lengthPass; i++){
+        // var random = (Math.floor(Math.random() * userChoice.length));
+        var random = newPass.push(userChoice[Math.floor(Math.random() * userChoice.length)]);
+
+        // newPass = newPass.concat(random);
+      } 
+      
+      return newPass.join("");
+      // console.log("done processing " + newPass)
+      console.log(random)
   }
+
+ 
+
 
   function checkNums(){
     var numbers = confirm("Would you like to include numbers?");
@@ -125,4 +91,4 @@ function generatePassword(){
     console.log("check sp char " + spChar)
   }
  
-}
+
