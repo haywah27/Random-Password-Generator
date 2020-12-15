@@ -32,81 +32,58 @@ var specialChar = ["!", "\"", "'", "@", "#", "$", "%", "^", "&", "*", "(", ")", 
 
 
 function generatePassword(){
-  // checkLength();
+  // set to empty string to avoid appending to previous password
   var userChoice = [];
-  var newPass = [];
 
-  // while the length input is not between 8-128, loop until the user inputs valid response
-  // then proceed with the other prompts
- 
-  
-  // check length
+  // input length, if out of params, loop until a valid response is entered
     var lengthPass = parseInt(prompt("Enter a length of password between 8 and 128."));
     while (lengthPass < 8 || lengthPass > 128 || !lengthPass){
       lengthPass = parseInt(prompt("Your password length has to be a number between 8 and 128, please re-submit"));
     }
     
-
+    // confirm whether to include lowercase letters 
     var lowerCase = confirm("Would you like to include lower case letters?");
-
-    if(lowerCase === true){ 
+    if (lowerCase === true){ 
       console.log("is true lower");
+      // if true (yes), add it to the userChoice array
       userChoice = userChoice.concat(lowerCaseChar);
     }
-    // console.log("this is userChoice: " + userChoice);
-  
-    // console.log(userChoice)
 
+    // confirm whether to include uppercase letters 
     var upperCase = confirm("Would you like to include upper case letters?");
-    // console.log("check upper " + upperCase);
-
-    if(upperCase === true){ 
+    if (upperCase === true){ 
       console.log("is true upper");
       userChoice = userChoice.concat(upperCaseChar);
     } 
-    // console.log("this is userChoice: " + userChoice);
 
-
+    // confirm whether to include numbers
     var numbers = confirm("Would you like to include numbers?");
-    if(numbers === true){ 
-      console.log("is true upper");
+    if (numbers === true){ 
+      console.log("is true numbers");
       userChoice = userChoice.concat(numberOptions);
     } 
-    // console.log("this is userChoice: " + userChoice);
 
-
+    // confirm whether to include special characters 
     var spChar = confirm("Would you like to include special characters?");
-    if(spChar === true){ 
-      console.log("is true upper");
+    if (spChar === true){ 
+      console.log("is true spChar");
       userChoice = userChoice.concat(specialChar);
     } 
-    console.log("this is userChoice: " + userChoice);
-
-
+    // if no option is confirmed, alert to try again
+    if (!lowerCase || !upperCase || !numbers || !spChar){
+      alert("You have to choose at least one type of character. Please try again.");
+    }
     
-    
-
-    for(var i = 0; i < lengthPass; i++){
-      // var random = (Math.floor(Math.random() * userChoice.length));
+    // create empty array for generated password
+    var newPass = [];
+    // for loop to designate the length of the password (length is decided by user)
+    for (var i = 0; i < lengthPass; i++){
+      // newPass.push posts to page // math to pick random positions in user decided arrays
       newPass.push(userChoice[Math.floor(Math.random() * userChoice.length)]);
+      // will return individual strings
     } 
-    console.log("this is newPass: " + newPass)
+
+    // join will remove the quotes from the individual strings and make one long string
     return newPass.join("");
+
   }
- 
-
- 
-
-
-  function checkNums(){
-    var numbers = confirm("Would you like to include numbers?");
-    console.log("check num " + numbers)
-    checkSpChar();
-  }
-
-  function checkSpChar(){
-    var spChar = confirm("Would you like to include lower case letters");
-    console.log("check sp char " + spChar)
-  }
- 
-
