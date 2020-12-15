@@ -25,6 +25,7 @@ generateBtn.addEventListener("click", writePassword);
 
 var lowerCaseChar = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var upperCaseChar = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+var numberOptions = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 
 
@@ -51,27 +52,36 @@ function generatePassword(){
       console.log("is true lower");
       userChoice = userChoice.concat(lowerCaseChar);
     }
-    console.log("this is userChoice: " + userChoice)
+    // console.log("this is userChoice: " + userChoice);
   
     // console.log(userChoice)
 
-    // var upperCase = confirm("Would you like to include upper case letters?");
-    // // console.log("check upper " + upperCase);
+    var upperCase = confirm("Would you like to include upper case letters?");
+    // console.log("check upper " + upperCase);
 
-    // if(upperCase === true){ 
-    //   console.log("is true upper");
-    //   userChoice = userChoice.concat(upperCaseChar);
-    // } 
-    // console.log("this is userChoice: " + userChoice)
+    if(upperCase === true){ 
+      console.log("is true upper");
+      userChoice = userChoice.concat(upperCaseChar);
+    } 
+    // console.log("this is userChoice: " + userChoice);
+
+
+    var numbers = confirm("Would you like to include numbers?");
+    if(numbers === true){ 
+      console.log("is true upper");
+      userChoice = userChoice.concat(numberOptions);
+    } 
+    console.log("this is userChoice: " + userChoice);
+
     
     
 
-      for(var i = 0; i < lengthPass; i++){
-        // var random = (Math.floor(Math.random() * userChoice.length));
-        newPass.push(userChoice[Math.floor(Math.random() * userChoice.length)]);
-      } 
-      console.log("this is newPass: " + newPass)
-      return newPass.join("");
+    for(var i = 0; i < lengthPass; i++){
+      // var random = (Math.floor(Math.random() * userChoice.length));
+      newPass.push(userChoice[Math.floor(Math.random() * userChoice.length)]);
+    } 
+    console.log("this is newPass: " + newPass)
+    return newPass.join("");
   }
  
 
