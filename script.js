@@ -25,18 +25,19 @@ generateBtn.addEventListener("click", writePassword);
 
 var lowerCaseChar = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var upperCaseChar = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-var userChoice = [];
-var newPass = [];
+
 
 
 
 function generatePassword(){
   // checkLength();
+  var userChoice = [];
+  var newPass = [];
 
   // while the length input is not between 8-128, loop until the user inputs valid response
   // then proceed with the other prompts
  
-
+  
   // check length
     var lengthPass = parseInt(prompt("Enter a length of password between 8 and 128."));
     while (lengthPass < 8 || lengthPass > 128 || !lengthPass){
@@ -67,15 +68,12 @@ function generatePassword(){
 
       for(var i = 0; i < lengthPass; i++){
         // var random = (Math.floor(Math.random() * userChoice.length));
-        var random = newPass.push(userChoice[Math.floor(Math.random() * userChoice.length)]);
-
-        // newPass = newPass.concat(random);
+        newPass.push(userChoice[Math.floor(Math.random() * userChoice.length)]);
       } 
-      
+      console.log("this is newPass: " + newPass)
       return newPass.join("");
-      // console.log("done processing " + newPass)
-      console.log(random)
   }
+ 
 
  
 
