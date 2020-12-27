@@ -5,9 +5,7 @@ var generateBtn = document.querySelector("#generate");
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
   passwordText.value = password;
-
 }
 
 // Add event listener to generate button
@@ -57,7 +55,7 @@ function generatePassword(){
     userChoice = userChoice.concat(specialChar);
   } 
   // if no option is confirmed, alert to try again
-  if (!lowerCase || !upperCase || !numbers || !spChar){
+  if (!lowerCase && !upperCase && !numbers && !spChar){
     alert("You have to choose at least one type of character. Please try again.");
   }
   
